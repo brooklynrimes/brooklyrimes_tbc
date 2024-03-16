@@ -1,0 +1,56 @@
+Brooklyn Rimes 
+Combat
+3/13/2024
+Creating a turn based combat 
+
+Create object class --> " Character" 
+    Create function to intialize values for Character class: 
+        -Name of the character 
+        -hitPoints(integer no max/min) = amount of damage can the character undergo 
+        -hitChance(integer,0-100)= proability of a successful hit 
+        -maxDamage(positive integer)= maximum amount of damage a single hit will undergo
+        -armor(positive interger)= hits absorbed by armor
+
+Create properties and setters for values
+    -Setting functions --> create a way to insure integers are valid
+    -This is done by testInt (test integer) function
+
+testInt
+    -takes values from Character class --> Tests them between a max and min 
+    -not a legal value --> set to default 
+    -default = 0
+        1.Make sure value is in integer
+        2.Then make sure integers are within parameter 
+    return default 
+
+Create a function to print out stats of character in play 
+
+Create a function to determine if an attack will be hit by using value of the chance of the Character and enemy 
+    - roll random number (1-100) 
+    -if character's hitChance is greater than number rolled--> count as hit on given target
+        -roll for damage of attack 
+            -roll a number between 1 and  character's maxDamage (stored as variable-->"damage")
+        -subtract target's armor rating from damage rolled 
+            -(this determines the amount of damage dealt) 
+        if: damage result < 0 --> set it to 0
+            -(prevents negative numbers that helps the enemy)
+        if: damage result > 0
+            subtract damage from enemy's health
+
+Create a function to run actual battle 
+    -when you enter a new round of combat press enter until one of the character's health=0 
+    -This is called basicFight
+        -has parameters: character1 and character2
+    -Create a keepGoing conditon to continue function until you reach "death"
+    =While keepGoing:
+        use "hit" funtion for characters
+    -Print out status of each character 
+    -If character hitPoints=0 
+        -set keepGoing to false 
+        -print winner's name 
+
+Create a variable called start 
+    -will ask for an input 
+    -allows combat to pause in between round until user presses enter
+
+Finally save enter code as tbc.py
